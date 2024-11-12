@@ -1,11 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FM PICK</title>
 </head>
 <body>
-    <h1>home</h1>
+    <img id="FMpickLogo" src="./Img/fmpick_white.svg" alt="FMPick Logo">
+
+    <form id="form">
+        <img src="./Img/search.svg" alt="검색 아이콘">
+        <input type="search" placeholder="농작물을 검색하세요">
+    </form>
+
+    <h2>TOP 3</h2>
+    <h3>인기 있는 농산물</h3>
+
+    <div class="product-list">
+        <div class="product-item">
+            <img src="./Img/portato.svg" alt="감자">
+            <div class="product-info">
+                <span>TOP 1</span>
+                <p>감자</p>
+                <p>소영이네</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="./Img/pepper.svg" alt="고추">
+            <div class="product-info">
+                <span>TOP 2</span>
+                <p>고추</p>
+                <p>영심이네</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="./Img/gam.svg" alt="감">
+            <div class="product-info">
+                <span>TOP 3</span>
+                <p>감</p>
+                <p>채연이네</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notice">
+        !! 내 상품을 직접 올리고 등록해서 판매하세요 !!
+    </div>
+
+    <!-- 네비게이터 바 -->
+    <div class="navigator-bar">
+        <a href="#">
+            <img src="./Img/home.svg" alt="홈 아이콘">
+            <span>홈</span>
+        </a>
+        <a href="#">
+            <img src="./Img/farm.svg" alt="팜톡 아이콘">
+            <span>팜톡</span>
+        </a>
+        <a href="#" class="center-btn">
+            <img src="./Img/camera.svg" alt="중앙 아이콘">
+        </a>
+        <a href="#">
+            <img src="./Img/order.svg" alt="주문 아이콘">
+            <span>주문</span>
+        </a>
+        <a href="#">
+            <img src="./Img/my.svg" alt="마이 아이콘">
+            <span>마이</span>
+        </a>
+    </div>
 </body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 20px;
+        padding-bottom: 80px; 
+    }
+
+    #FMpickLogo {
+        width: 120px;
+        margin-top: 20px;
+    }
+
+    #form {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        background-color: #FAFAFA;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 20px 0;
+    }
+
+    #form img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    #form input[type="search"] {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: #FAFAFA;
+        font-size: 16px;
+    }
+
+    h2 {
+        color: #4CAF50;
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    h3 {
+        color: #333;
+        font-size: 18px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .product-list {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .product-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .product-item img {
+        width: 120px;
+        height: 80px;
+        border-radius: 10px;
+        margin-right: 15px;
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .product-info p {
+        margin: 0;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .notice {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        margin-top: 100px;
+    }
+
+    .navigator-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    .navigator-bar a {
+        color: #4CAF50;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigator-bar a img {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 5px;
+    }
+
+    .navigator-bar .center-btn {
+        background-color: #E8F5E9;
+        border-radius: 50%;
+        padding: 10px;
+    }
+</style>
 </html>
