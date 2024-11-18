@@ -71,31 +71,34 @@
             <span>마이</span>
         </a>
     </div>
-</body>
-<script>
-    const searchForm = document.getElementById('form');
-    const searchInput = searchForm.querySelector('input[type="search"]');  
-    const productItems = document.querySelectorAll('.product-item');
 
-    searchForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const keyword = searchInput.value.trim();
+    <script>
+        const searchForm = document.getElementById('form');
+        const searchInput = searchForm.querySelector('input[type="search"]');  
+        const productItems = document.querySelectorAll('.product-item');
 
-        // 검색 결과에 따라 기존 리스트 업데이트
-        productItems.forEach(item => {
-            const productName = item.querySelector('.product-info p').textContent;
-            if (productName.includes(keyword)) {
-                item.style.display = 'flex'; // 검색어와 일치하면 표시
-            } else {
-                item.style.display = 'none'; // 일치하지 않으면 숨김
-            }
-        });
-
-        if (!keyword) {
+        // 검색 필터 업데이트 함수
+        function updateProductList(keyword) {
             productItems.forEach(item => {
-                item.style.display = 'flex';
+                const productName = item.querySelector('.product-info p').textContent;
+                if (!keyword || productName.includes(keyword)) {
+                    item.style.display = 'flex'; // 검색어와 일치하거나 검색어가 비어 있으면 표시
+                } else {
+                    item.style.display = 'none'; // 검색어와 일치하지 않으면 숨김
+                }
             });
         }
-    });
-</script>
+
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const keyword = searchInput.value.trim();
+            updateProductList(keyword);
+        });
+
+        searchInput.addEventListener('input', function() {
+            const keyword = searchInput.value.trim();
+            updateProductList(keyword);
+        });
+    </script>
+</body>
 </html>
