@@ -205,4 +205,31 @@
         padding: 10px;
     }
 </style>
+<script>
+    const searchForm = document.getElementById('form');
+    const searchInput = searchForm.querySelector('input[type="search"]');  
+    const productItems = document.querySelectorAll('.product-item');
+
+    searchForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const keyword = searchInput.value.trim();
+
+    // 검색 결과에 따라 기존 리스트 업데이트
+    productItems.forEach(item => {
+         const productName = item.querySelector('.product-info p').textContent;
+         if (productName.includes(keyword)) {
+            item.style.display = 'flex'; // 검색어와 일치하면 표시
+        } else {
+            item.style.display = 'none'; // 일치하지 않으면 숨김
+        }
+    });
+
+    if (!keyword) {
+        productItems.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+});
+
+</script>
 </html>
