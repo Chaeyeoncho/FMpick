@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 정보 페이지</title>
+    <style>
+        /* 공통 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .navigation {
+             display: flex; 
+             align-items: center; 
+            justify-content: space-between;
+             margin-bottom: 20px; 
+         }
+
+         #back, #home {
+            width: 25px; 
+            height: auto; 
+            cursor: pointer;
+         }  
+
+        .container img {
+            cursor: pointer;
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        .product {
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            text-align: left;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-info span {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            margin: 5px 0;
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 235px;
+        }
+
+        .button button {
+            width: 48%;
+            padding: 15px;
+            background-color: #388E3C;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button button:first-child {
+            background-color: #eeeeee;
+            color: #333;
+        }
+
+        .button button:hover {
+            opacity: 0.9;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 네비게이션 -->
+        <div class="navigation">
+            <img id="back" src="../img/back.png" alt="뒤로가기" onClick="goBack()">
+            <img id="home" src="../img/product_home.png" alt="홈" onClick="goHome()">
+        </div>
+
+        <!-- 상품 이미지 및 정보 -->
+        <div class="product">
+            <img src="../img/portato.svg" alt="감자">
+            <div class="product-info">
+                <span>감자</span>
+                <p>강원도에서 재배한 신선한 감자</p>
+                <p>3kg</p>
+                <p style="font-size: 20px; font-weight: bold; color: #333;">6,000원</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="button">
+            <button onclick="addToCart()">장바구니</button>
+            <button onclick="buyNow()">구매하기</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function goHome() {
+            window.location.href = "/index.html";
+        }
+
+        function addToCart() {
+            alert("장바구니에 추가되었습니다!");
+        }
+
+        function buyNow() {
+            alert("구매 페이지로 이동합니다!");
+        }
+    </script>
+</body>
+</html>
