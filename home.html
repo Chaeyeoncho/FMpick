@@ -20,7 +20,7 @@
 
         <div class="product-list">
             <div class="product-item">
-                <img src="./Img/portato.svg" alt="감자">
+                <img src="./Img/portato.svg" alt="감자" id = "portato">
                 <div class="product-info">
                     <span>TOP 1</span>
                     <p>감자</p>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="product-item">
-                <img src="./Img/pepper.svg" alt="고추">
+                <img src="./Img/pepper.svg" alt="고추" id = "farm">
                 <div class="product-info">
                     <span>TOP 2</span>
                     <p>고추</p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="product-item">
-                <img src="./Img/gam.svg" alt="감">
+                <img src="./Img/gam.svg" alt="감" id ="farm">
                 <div class="product-info">
                     <span>TOP 3</span>
                     <p>감</p>
@@ -73,6 +73,11 @@
     </div>
 
     <script>
+        const img = document.getElementById("portato");
+        img.addEventListener("click", function(){
+            window.location.href = "product/product.html";
+        });
+
         const searchForm = document.getElementById('form');
         const searchInput = searchForm.querySelector('input[type="search"]');  
         const productItems = document.querySelectorAll('.product-item');
