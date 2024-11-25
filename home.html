@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="product-item">
-                <img src="./Img/pepper.svg" alt="고추" id = "farm">
+                <img src="./Img/pepper.svg" alt="고추" id = "pepper">
                 <div class="product-info">
                     <span>TOP 2</span>
                     <p>고추</p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="product-item">
-                <img src="./Img/gam.svg" alt="감" id ="farm">
+                <img src="./Img/gam.svg" alt="감" id ="gam">
                 <div class="product-info">
                     <span>TOP 3</span>
                     <p>감</p>
@@ -73,14 +73,20 @@
     </div>
 
     <script>
-        const img = document.getElementById("portato");
-        img.addEventListener("click", function(){
-            window.location.href = "product/portato.html";
-        });
+       const products = [
+        { id: "portato", url: "product/portato.html" },
+        { id: "pepper", url: "product/pepper.html" },
+        { id: "gam", url: "product/gam.html" }
+        ];
 
-        const searchForm = document.getElementById('form');
-        const searchInput = searchForm.querySelector('input[type="search"]');  
-        const productItems = document.querySelectorAll('.product-item');
+        products.forEach(product => {
+        const img = document.getElementById(product.id);
+        img.addEventListener("click", function() {
+        window.location.href = product.url;
+        
+        });
+    });
+
 
         // 검색 필터 업데이트 함수
         function updateProductList(keyword) {
