@@ -6,31 +6,39 @@
     <title>FMPick</title>
 </head>
 <body>
-    <div class="container">
+    <div class="background">
         <img id="FMpickLogo" src="./Img/fmpick.svg" alt="FMPick Logo">
         <img id="KakaoLogo" src="./Img/kakao.svg" alt="Kakao Logo" onClick="Home()">
     </div>
 </body>
 <style>
-    html, body {
-        background-color: #398411;
-        height: 100vh;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    #FMpickLogo {
-        margin-top: 180px;
-    }
-    #KakaoLogo {
-        margin-top: 200px;
-    }
+ html, body {
+            background-color: #f9f9f9;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background {
+            width: 500px;
+            min-height: 95vh; 
+            background-color: #398411; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #FMpickLogo {
+            margin-top: 50px;
+        }
+
+        #KakaoLogo {
+          margin-top: 100px;
+        }
 </style>
 <script>
     function Home(){
