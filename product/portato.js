@@ -12,5 +12,13 @@
         }
 
         function buyNow() {
-            alert("구매 페이지로 이동합니다!");
-        }
+            const productInfo = {
+              name: "감자", 
+              price: "6,000원", 
+              weight: "3kg", 
+            };
+        
+            localStorage.setItem("selectedProduct", JSON.stringify(productInfo));
+        
+            window.location.href = "../pay.html";
+          }

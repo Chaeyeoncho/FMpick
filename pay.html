@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 화면</title>
+  <style>
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; 
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+}
+
+.container {
+    background-color: #ffffff; 
+    width: 100%;
+    max-width: 500px; 
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin: 0 auto; 
+    box-sizing: border-box; 
+    min-height: 100vh;
+}
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .input-group input[type="text"],
+    .input-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .radio-group label {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .radio-group input[type="radio"] {
+      display: none;
+    }
+
+    .radio-group input[type="radio"]:checked + label {
+      background-color: #f0f8ff;
+      border-color: #388E3C;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      background-color: #388E3C;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background-color: #121212;
+    }
+
+    .summary {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .summary-item.total {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .agreement {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">주문하기</h1>
+
+    <!-- 수령 방식 -->
+    <div class="subtitle">수령 방식</div>
+    <div class="radio-group">
+      <input type="radio" id="immediate" name="delivery-method" checked>
+      <label for="immediate">택배로 받아보기</label>
+      <input type="radio" id="pickup" name="delivery-method">
+      <label for="pickup">직거래하기</label>
+    </div>
+
+    <!-- 방문할 시간 -->
+    <div class="subtitle">거래 요청 사항</div>
+    <div class="input-group">
+      <label for="visit-hour">판매자에게 전달되는 요청사항이에요</label>
+      <div style="display: flex; gap: 10px;">
+        <input type="text" id="visit-hour" placeholder="예) 평일 저녁 시간에 가능해요" style="flex: 1;">
+      </div>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="subtitle">연락처</div>
+    <div class="input-group">
+      <label for="phone">판매자 전화번호 : 010-4634-6109 , 판매자와 연락 후 구매 하세요</label>
+      <input type="text" id="phone" placeholder="010-0000-0000">
+    </div>
+
+    <!-- 결제 수단 -->
+    <div class="subtitle">결제 수단</div>
+    <div class="radio-group">
+      <input type="radio" id="toss" name="payment-method" checked>
+      <label for="toss">토스페이</label>
+    </div>
+
+    <!-- 요약 -->
+    <div class="summary">
+      <div class="summary-item">
+        <span>상품명</span>
+        <span>노스페이스 패딩</span> 
+      </div>
+      <div class="summary-item">
+        <span>결제 금액</span>
+        <span>85,000원</span> 
+      </div>
+      <div class="summary-item total">
+        <span>총 결제 금액</span>
+        <span>85,000원</span> 
+      </div>
+    </div>
+
+    <!-- 결제 버튼 -->
+    <button class="button">85,000원 주문하기</button> 
+    <div class="agreement">
+      결제 시 약관에 동의한 것으로 간주됩니다.
+    </div>
+  </div>
+</body>
+<script>
+  const productInfo = JSON.parse(localStorage.getItem("selectedProduct"));
+
+  if (productInfo) {
+    document.querySelector(".summary-item:nth-child(1) span:nth-child(2)").innerText = productInfo.name;
+    document.querySelector(".summary-item:nth-child(2) span:nth-child(2)").innerText = productInfo.price;
+    document.querySelector(".summary-item.total span:nth-child(2)").innerText = productInfo.price;
+
+    document.querySelector(".button").innerText = `${productInfo.price} 주문하기`;
+  } else {
+    alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
+    window.location.href = "portato.html"; 
+  }
+
+</script>
+</html>

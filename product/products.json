@@ -1,0 +1,24 @@
+    [
+        {
+            "name": "감자",
+            "price": "6,000원",
+            "weight": "3kg",
+            "description": "강원도에서 재배한 신선한 감자",
+            "image": "../Img/portato.svg"
+        },
+        {
+            "name": "고추",
+            "price": "9,000원",
+            "weight": "1kg",
+            "description": "전라북도 고창에서 재배한 알싸한 고추",
+            "image": "../Img/pepper.svg"
+        },
+        {
+            "name": "감",
+            "price": "10,900원",
+            "weight": "4kg",
+            "description": "",
+            "image": "../Img/gam.svg"
+        }
+    ]
+    

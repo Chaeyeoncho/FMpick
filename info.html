@@ -41,27 +41,6 @@
 
         <button id="submitBtn">등록 완료</button>
     </div>
-
-    <script>
-        const fileInput = document.getElementById('fileUpload');
-        const previewImage = document.getElementById('previewImage');
-
-        fileInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.addEventListener('click', function() {
-            alert('상품이 성공적으로 등록되었습니다!');
-        });
-    </script>
 </body>
+<script src="info.js"></script>
 </html>
