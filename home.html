@@ -50,14 +50,15 @@
         </div>
     </div>
 
+    <div class="latest-product-list">
+        
+    </div>
+
     <div class="navigator-bar">
         <a href="#">
             <img src="./Img/home.svg" alt="홈 아이콘">
             <span>홈</span>
         </a>
-        <a href="#">
-            <img src="./Img/farm.svg" alt="팜톡 아이콘">
-            <span>팜톡</span>
         </a>
         <a href="info.html" class="center-btn">
             <img src="./Img/camera.svg" alt="중앙 아이콘">
@@ -71,45 +72,6 @@
             <span>마이</span>
         </a>
     </div>
-
-    <script>
-       const products = [
-        { id: "portato", url: "product/portato.html" },
-        { id: "pepper", url: "product/pepper.html" },
-        { id: "gam", url: "product/gam.html" }
-        ];
-
-        products.forEach(product => {
-        const img = document.getElementById(product.id);
-        img.addEventListener("click", function() {
-        window.location.href = product.url;
-        
-        });
-    });
-
-
-        // 검색 필터 업데이트 함수
-        function updateProductList(keyword) {
-            productItems.forEach(item => {
-                const productName = item.querySelector('.product-info p').textContent;
-                if (!keyword || productName.includes(keyword)) {
-                    item.style.display = 'flex'; // 검색어와 일치하거나 검색어가 비어 있으면 표시
-                } else {
-                    item.style.display = 'none'; // 검색어와 일치하지 않으면 숨김
-                }
-            });
-        }
-
-        searchForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const keyword = searchInput.value.trim();
-            updateProductList(keyword);
-        });
-
-        searchInput.addEventListener('input', function() {
-            const keyword = searchInput.value.trim();
-            updateProductList(keyword);
-        });
-    </script>
+    <script src="home.js"></script>
 </body>
 </html>
