@@ -8,12 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <img id="FMpickLogo" src="./Img/fmpick_white.svg" alt="FMPick Logo">
+        <a href="home.html">
+            <img id="FMpickLogo" src="./Img/fmpick_white.svg" alt="FMPick Logo">
+        </a></a>
 
         <form id="form">
             <img src="./Img/search.svg" alt="검색 아이콘">
             <input type="search" placeholder="농작물을 검색하세요">
         </form>
+
+        <h2 class = "weather">농산물 추천</h2>
+        <h3>계절에 맞는 농산물</h3>
+         <h4 class="weather-recommendation">
+            <span id="loading-indicator" style="display: none;">날씨 기반으로 농산물을 추천해드릴게요! 잠시만 기다려주세요! 🌦️</span>
+         </h4>
+        <div class="seasonal-product-list"></div>
+
 
         <h2>TOP 3</h2>
         <h3>인기 있는 농산물</h3>
@@ -45,18 +55,11 @@
             </div>
         </div>
 
-        <h2>최신순</h2>
+        <h2 class = "latest">최신순</h2>
         <h3>최신 등록한 농산물</h3>
 
         <div class="latest-product-list">
 
-        </div>
-
-        <h2>날씨 기반 추천</h2>
-        <h3>계절에 맞는 농산물</h3>
-        <h4 class="weather-recommendation"></h4>
-
-        <div class="seasonal-product-list">
         </div>
 
         <div class="notice">
@@ -67,18 +70,19 @@
     <div class="navigator-bar">
         <a href="#">
             <img src="./Img/home.svg" alt="홈 아이콘">
-            <span>홈</span>
+            <span class = "nav-realtitle">홈</span>
         </a>
-        <a href="info.html" class="center-btn">
-            <img src="./Img/camera.svg" alt="중앙 아이콘">
+        <a href="info.html" >
+            <img src="./Img/qr.svg" alt="중앙 아이콘">
+            <span class = "nav-title">등록</span>
         </a>
         <a href="#">
             <img src="./Img/order.svg" alt="주문 아이콘">
-            <span>주문</span>
+            <span class = "nav-title">주문</span>
         </a>
         <a href="#">
             <img src="./Img/my.svg" alt="마이 아이콘">
-            <span>마이</span>
+            <span class = "nav-title">마이</span>
         </a>
     </div>
     <script src="home.js"></script>
