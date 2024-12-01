@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const latestProductList = document.querySelector('.latest-product-list');
 
-   //  LocalStorage에서 데이터 가져오기
+    // LocalStorage에서 데이터 가져오기
     const products = JSON.parse(localStorage.getItem('products')) || [];
 
     products.reverse().forEach((product, index) => {
@@ -19,60 +19,74 @@ document.addEventListener('DOMContentLoaded', function () {
         latestProductList.appendChild(latestProductItem);
     });
 
-    products.forEach((product, index) => {
-        const img = document.getElementById(`latest-product-${index}`);
-        if (img) {
-            img.addEventListener('click', function () {
-                alert(`${product.name} 상품 페이지로 이동!`);
-               // url 추후에 추가 ..!
+    function updateProductList(keyword) {
+        const productItems = document.querySelectorAll('.product-item'); 
+        const top3Section = document.querySelector('.product-list'); 
+        const latestSection = document.querySelector('.latest-product-list'); 
+        const top3Title = document.querySelector('h2:nth-of-type(2)'); 
+        const latestTitle = document.querySelector('h2:nth-of-type(3)'); 
+        const top3SubTitle = document.querySelector('h3:nth-of-type(2)'); 
+        const latestSubTitle = document.querySelector('h3:nth-of-type(3)'); 
+        const weatherTitle = document.querySelector('.weather'); 
+        const weatherSubTitle = document.querySelector('.weather + h3'); 
+        const weatherRecommendation = document.querySelector('.weather-recommendation'); 
+    
+        let hasMatchingProduct = false; 
+    
+
+        if (keyword) {
+            productItems.forEach(item => {
+                const productName = item.querySelector('.product-info p').textContent;
+    
+                if (productName.includes(keyword)) {
+                    item.style.display = 'flex';
+                    hasMatchingProduct = true;
+                } else {
+                    item.style.display = 'none';
+                }
             });
-        }
-    });
-
-
-const searchForm = document.getElementById('form');
-const searchInput = searchForm.querySelector('input[type="search"]');
-
-// 검색 필터 업데이트 함수
-function updateProductList(keyword) {
-    const productItems = document.querySelectorAll('.product-item'); 
-    const top3Title = document.querySelector('h2:nth-of-type(1)'); 
-    const latestTitle = document.querySelector('h2:nth-of-type(2)'); 
-    const top3subTitle = document.querySelector('h3:nth-of-type(1)'); 
-    const latestSubTitle = document.querySelector('h3:nth-of-type(2)'); 
-
-    let top3Visible = false; 
-    let latestVisible = false; 
-
-    productItems.forEach(item => {
-        const productName = item.querySelector('.product-info p').textContent;
-        if (!keyword || productName.includes(keyword)) {
-            item.style.display = 'flex'; 
-            if (item.closest('.product-list')) {
-                top3Visible = true; 
-            }
-            if (item.closest('.latest-product-list')) {
-                latestVisible = true; 
+  
+            top3Section.style.display = 'none';
+            latestSection.style.display = 'none';
+            top3Title.style.display = 'none';
+            latestTitle.style.display = 'none';
+            top3SubTitle.style.display = 'none';
+            latestSubTitle.style.display = 'none';
+            weatherTitle.style.display = 'none';
+            weatherSubTitle.style.display = 'none';
+            weatherRecommendation.style.display = 'none';
+ 
+            if (!hasMatchingProduct) {
+                console.log("해당 키워드와 일치하는 상품이 없습니다.");
             }
         } else {
-            item.style.display = 'none'; 
+            productItems.forEach(item => {
+                item.style.display = 'flex';
+            });
+    
+            top3Section.style.display = 'block';
+            latestSection.style.display = 'block';
+            top3Title.style.display = 'block';
+            latestTitle.style.display = 'block';
+            top3SubTitle.style.display = 'block';
+            latestSubTitle.style.display = 'block';
+            weatherTitle.style.display = 'block';
+            weatherSubTitle.style.display = 'block';
+            weatherRecommendation.style.display = 'block';
         }
+    }
+    
+    const searchForm = document.getElementById('form');
+    const searchInput = searchForm.querySelector('input[type="search"]');
+
+    searchForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        const keyword = searchInput.value.trim();
+        updateProductList(keyword); 
     });
 
-    top3Title.style.display = top3Visible ? 'block' : 'none';
-    latestTitle.style.display = latestVisible ? 'block' : 'none';
-    top3subTitle.style.display = top3Visible ? 'block' : 'none';
-    latestSubTitle.style.display = latestVisible ? 'block' : 'none';
-}
-
-searchForm.addEventListener('submit', function (event) {
-    event.preventDefault(); 
-    const keyword = searchInput.value.trim();
-    updateProductList(keyword); 
-});
-
-searchInput.addEventListener('input', function () {
-    const keyword = searchInput.value.trim();
-    updateProductList(keyword);
-});
+    searchInput.addEventListener('input', function () {
+        const keyword = searchInput.value.trim();
+        updateProductList(keyword);
+    });
 });
