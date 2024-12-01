@@ -9,7 +9,7 @@ function getTodayDate() {
 
 async function fetchWeather() {
     const apiKey = "6If6KftJqxCrVs%2FIrAavelYdOpJ9f6QYJ%2BnKWsmf8hof72rINbR%2Fs5qyuLNoM2%2FSZkdy%2FgzuoyO1z3v1nBftEg%3D%3D";
-    const baseUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
+    const baseUrl = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
 
     const baseDate = getTodayDate(); 
     const baseTime = "0500"; 
