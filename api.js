@@ -80,13 +80,13 @@ function displaySeasonalProducts(season) {
     const seasonalProducts = {
         spring: [
             { name: "딸기", image: "./Img/strawberry.png" },
-            { name: "아스파라거스", image: "./Img/asparagus.jpg" },
+            { name: "아스파라거스", image: "./Img/asparagus.png" },
             { name: "쑥갓", image: "./Img/ssukgat.jpg" }
         ],
         summer: [
-            { name: "수박", image: "./Img/watermelon.jpg" },
-            { name: "옥수수", image: "./Img/corn.jpg" },
-            { name: "가지", image: "./Img/gazi.jpg" }
+            { name: "수박", image: "./Img/watermelon.png" },
+            { name: "옥수수", image: "./Img/corn.png" },
+            { name: "가지", image: "./Img/gazi.png" }
         ],
         autumn: [
             { name: "감", image: "./Img/gam.svg" },
@@ -94,9 +94,9 @@ function displaySeasonalProducts(season) {
             { name: "배", image: "./Img/pear.png" }
         ],
         winter: [
-            { name: "배추", image: "./Img/cabbage.jpg" },
-            { name: "무", image: "./Img/radish.jpg" },
-            { name: "귤", image: "./Img/gule.jpg" }
+            { name: "배추", image: "./Img/cabbage.png" },
+            { name: "무", image: "./Img/radish.png" },
+            { name: "귤", image: "./Img/gule.png" }
         ]
     };
 
