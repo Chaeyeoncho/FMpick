@@ -92,41 +92,6 @@ h3 {
     margin-bottom: 20px;
 }
 
-.product-list {
-    width: 100%;
-    max-width: 500px;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.product-item {
-    align-items: center;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.product-item img {
-    align-items: center;
-    width: 120px;
-    height: 80px;
-    border-radius: 10px;
-    margin-right: 15px;
-}
-
-.product-info {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-.product-info p {
-    margin: 0;
-    color: #333;
-    font-size: 14px;
-}
 
 .notice {
     text-align: center;
@@ -160,27 +125,38 @@ h3 {
 html {
     scroll-behavior: smooth; 
 }
-
-.latest-product-list {
+/* 공통 리스트 스타일 */
+.product-list,
+.latest-product-list,
+.seasonal-product-list {
     width: 100%;
     max-width: 500px;
     align-items: center;
 }
 
-.latest-product-list .product-item {
-    align-items: center;
+/* 공통 아이템 스타일 */
+.product-list .product-item,
+.latest-product-list .product-item,
+.seasonal-product-list .product-item {
     display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.latest-product-list .product-item img {
+/* 공통 이미지 스타일 */
+.product-list .product-item img,
+.latest-product-list .product-item img,
+.seasonal-product-list .product-item img {
     width: 120px;
     height: 80px;
     border-radius: 10px;
     margin-right: 15px;
 }
 
-.latest-product-list .product-info {
+/* 공통 텍스트 정보 스타일 */
+.product-list .product-info,
+.latest-product-list .product-info,
+.seasonal-product-list .product-info {
     display: flex;
     flex-direction: column;
     font-size: 16px;
@@ -188,11 +164,41 @@ html {
     font-weight: bold;
 }
 
-.latest-product-list .product-info p {
+/* 공통 텍스트 스타일 */
+.product-list .product-info p,
+.latest-product-list .product-info p,
+.seasonal-product-list .product-info p {
     margin: 0;
     color: #333;
     font-size: 14px;
 }
+
+.weather-recommendation {
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.weather .max-temp{
+    color: #4CAF50;
+    font-weight: bold;
+}
+.weather .min-temp{
+    color: #4CAF50;
+    font-weight: bold; 
+}
+.weather-recommendation strong {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+
+
 
 
 
