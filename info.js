@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             };
             reader.readAsDataURL(file);
+        } else {
+            previewImage.src = './img/fmpick_white.svg';
+            previewImage.style.display = 'block';
+            if (defaultLabel) {
+                defaultLabel.style.display = 'block';
+            }
         }
     });
 
@@ -27,7 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const weight = document.querySelector('input[placeholder="상품 상태를 입력하세요"]').value.trim();
         const description = document.querySelector('textarea[placeholder="상품 설명을 입력하세요"]').value.trim();
         const price = document.querySelector('input[placeholder="가격을 입력하세요"]').value.trim();
-        const image = previewImage.src || '../Img/fmpick_white.svg';
+
+        const image = (previewImage.src && previewImage.src !== location.href) 
+            ? previewImage.src 
+            : './img/fmpick_white.svg';
 
         if (!productName || !weight || !description || !price) {
             alert("모든 항목을 입력해주세요!");
@@ -51,10 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         alert('상품이 성공적으로 등록되었습니다!');
         window.location.href = "home.html";
-
-
     });
-
 });
 
 function goBack() {
@@ -64,4 +70,3 @@ function goBack() {
 function goHome() {
     window.location.href = "/FMpick/home.html";
 }
-
