@@ -108,30 +108,31 @@ function displaySeasonalProducts(season) {
 
     const seasonalProducts = {
         spring: [
-            { name: "딸기", image: "./Img/strawberry.png", price: "5,000원" },
-            { name: "아스파라거스", image: "./Img/asparagus.png", price: "7,000원" },
-            { name: "쑥갓", image: "./Img/ssukgat.jpg", price: "3,500원" }
+            { id: "101", name: "딸기", image: "./Img/strawberry.png", price: "5,000원" },
+            { id: "102", name: "아스파라거스", image: "./Img/asparagus.png", price: "7,000원" },
+            { id: "103", name: "쑥갓", image: "./Img/ssukgat.jpg", price: "3,500원" }
         ],
         summer: [
-            { name: "수박", image: "./Img/watermelon.png", price: "12,000원" },
-            { name: "옥수수", image: "./Img/corn.png", price: "4,000원" },
-            { name: "가지", image: "./Img/gazi.png", price: "3,000원" }
+            { id: "104", name: "수박", image: "./Img/watermelon.png", price: "12,000원" },
+            { id: "105", name: "옥수수", image: "./Img/corn.png", price: "4,000원" },
+            { id: "106", name: "가지", image: "./Img/gazi.png", price: "3,000원" }
         ],
         autumn: [
-            { name: "감", image: "./Img/gam.svg", price: "5,500원" },
-            { name: "밤", image: "./Img/bam.png", price: "6,000원" },
-            { name: "배", image: "./Img/pear.png", price: "4,500원" }
+            { id: "107", name: "감", image: "./Img/gam.svg", price: "5,500원" },
+            { id: "108", name: "밤", image: "./Img/bam.png", price: "6,000원" },
+            { id: "109", name: "배", image: "./Img/pear.png", price: "4,500원" }
         ],
         winter: [
-            { name: "배추", image: "./Img/cabbage.png", price: "10,000원" },
-            { name: "무", image: "./Img/radish.png", price: "2,500원" },
-            { name: "귤", image: "./Img/gule.png", price: "8,000원" }
+            { id: "110", name: "배추", image: "./Img/cabbage.png", price: "10,000원" },
+            { id: "111", name: "무", image: "./Img/radish.png", price: "2,500원" },
+            { id: "112", name: "귤", image: "./Img/gule.png", price: "8,000원" }
         ]
     };
 
     const products = seasonalProducts[season];
     products.forEach(product => {
-        const productItem = document.createElement('div');
+        const productItem = document.createElement('a'); // a 태그 생성
+        productItem.href = `./product/product.html?id=${product.id}`;; // 상품 ID를 포함한 링크 설정
         productItem.classList.add('product-item');
 
         productItem.innerHTML = `
@@ -144,6 +145,7 @@ function displaySeasonalProducts(season) {
         seasonalList.appendChild(productItem);
     });
 }
+
 
 async function updateWeatherRecommendation() {
     const recommendationElement = document.querySelector('.weather-recommendation');
