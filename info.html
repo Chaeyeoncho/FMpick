@@ -8,30 +8,29 @@
 </head>
 <body>
     <div class="container">
+        <div class="navigation">
+            <img id="back" src="./img/back.png" alt="뒤로가기" onClick="goBack()">
+            <img id="home" src="./img/product_home.png" alt="홈" onClick="goHome()">
+        </div>
         <form id="form">
-            <img src="./Img/camera.svg" alt="카메라 아이콘">
-            <label for="fileUpload">사진 업로드</label>
-            <input type="file" id="fileUpload" accept="image/*" capture="camera">
+            <label for="fileUpload">
+                <img id="defaultImage" src="./img/enroll.png" alt="기본 이미지">
+            </label>
+            <input type="file" id="fileUpload" accept="image/*" capture="camera" style="display:none;">
             <img id="previewImage" class="preview" src="" alt="미리보기 이미지" style="display:none;">
         </form>
-
+        
         <h2>상품 등록</h2>
 
         <div class="product-info">
             <h3>상품 정보</h3>
             <input type="text" placeholder="상품명을 입력하세요">
-            <input type="text" placeholder="카테고리를 입력하세요">
             <input type="text" placeholder="상품 상태를 입력하세요">
         </div>
 
         <div class="product-info">
             <h3>설명</h3>
             <textarea placeholder="상품 설명을 입력하세요"></textarea>
-        </div>
-
-        <div class="product-info">
-            <h3>태그</h3>
-            <input type="text" placeholder="#태그를 입력하세요">
         </div>
 
         <div class="product-info">
