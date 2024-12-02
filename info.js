@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const productName = document.querySelector('input[placeholder="상품명을 입력하세요"]').value.trim();
         const category = document.querySelector('input[placeholder="카테고리를 입력하세요"]').value.trim();
-        const condition = document.querySelector('input[placeholder="상품 상태를 입력하세요"]').value.trim();
+        const weight = document.querySelector('input[placeholder="상품 상태를 입력하세요"]').value.trim();
         const description = document.querySelector('textarea[placeholder="상품 설명을 입력하세요"]').value.trim();
         const tag = document.querySelector('input[placeholder="#태그를 입력하세요"]').value.trim();
         const price = document.querySelector('input[placeholder="가격을 입력하세요"]').value.trim();
         const image = previewImage.src || '../Img/fmpick_white.svg'; 
 
-        if (!productName || !category || !condition || !description || !tag || !price) {
+        if (!productName || !category || !weight|| !description || !tag || !price) {
             alert("모든 항목을 입력해주세요!");
             return;
         }
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             id: Date.now().toString(), 
             name: productName,
             category,
-            condition,
+            weight,
             description,
             tag,
             price,
@@ -51,5 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         alert('상품이 성공적으로 등록되었습니다!');
         window.location.href = "home.html"; 
+        
     });
 });
