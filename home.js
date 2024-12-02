@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // LocalStorage에서 데이터 가져오기
     const products = JSON.parse(localStorage.getItem('products')) || [];
 
-    products.reverse().forEach((product, index) => {
-        const latestProductItem = document.createElement('div');
+    products.reverse().forEach((product) => {
+        const latestProductItem = document.createElement('a'); 
+        latestProductItem.href = `./product/product.html?id=${product.id}`;
         latestProductItem.classList.add('product-item');
 
         latestProductItem.innerHTML = `
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         latestProductList.appendChild(latestProductItem);
     });
+});
 
     function updateProductList(keyword) {
         const productItems = document.querySelectorAll('.product-item'); 
@@ -89,4 +91,3 @@ document.addEventListener('DOMContentLoaded', function () {
         const keyword = searchInput.value.trim();
         updateProductList(keyword);
     });
-});

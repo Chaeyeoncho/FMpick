@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('fileUpload');
     const previewImage = document.getElementById('previewImage');
     const submitBtn = document.getElementById('submitBtn');
@@ -15,34 +15,34 @@
         }
     });
 
+
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault();
 
-        // 상품 정보 가져오기
-        const productName = document.querySelector('input[placeholder="상품명을 입력하세요"]').value;
-        const category = document.querySelector('input[placeholder="카테고리를 입력하세요"]').value;
-        const condition = document.querySelector('input[placeholder="상품 상태를 입력하세요"]').value;
-        const description = document.querySelector('textarea[placeholder="상품 설명을 입력하세요"]').value;
-        const price = document.querySelector('input[placeholder="가격을 입력하세요"]').value;
-        const image = previewImage.src;
+        const productName = document.querySelector('input[placeholder="상품명을 입력하세요"]').value.trim();
+        const category = document.querySelector('input[placeholder="카테고리를 입력하세요"]').value.trim();
+        const condition = document.querySelector('input[placeholder="상품 상태를 입력하세요"]').value.trim();
+        const description = document.querySelector('textarea[placeholder="상품 설명을 입력하세요"]').value.trim();
+        const tag = document.querySelector('input[placeholder="#태그를 입력하세요"]').value.trim();
+        const price = document.querySelector('input[placeholder="가격을 입력하세요"]').value.trim();
+        const image = previewImage.src || '../Img/fmpick_white.svg'; 
 
-        // 데이터 검증
-        if (!productName || !category || !condition || !description || !price || !image) {
+        if (!productName || !category || !condition || !description || !tag || !price) {
             alert("모든 항목을 입력해주세요!");
             return;
         }
 
-        // LocalStorage에 저장할 데이터 생성
         const productData = {
+            id: Date.now().toString(), 
             name: productName,
             category,
             condition,
             description,
+            tag,
             price,
             image,
         };
 
-        // 기존 데이터 가져오기
         const existingProducts = JSON.parse(localStorage.getItem('products')) || [];
         existingProducts.push(productData);
 
@@ -50,5 +50,6 @@
         localStorage.setItem('products', JSON.stringify(existingProducts));
 
         alert('상품이 성공적으로 등록되었습니다!');
-        window.location.href = "home.html"; // 홈 페이지로 이동
+        window.location.href = "home.html"; 
     });
+});
