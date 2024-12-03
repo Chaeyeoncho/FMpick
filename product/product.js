@@ -68,6 +68,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+function addToCart() {
+    const productName = document.querySelector('.product-info span').textContent;
+    const productPrice = document.querySelector('.product-info p:nth-of-type(3)').textContent;
+    const productWeight = document.querySelector('.product-info p:nth-of-type(2)').textContent;
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({
+        name: productName,
+        price: productPrice,
+        weight: productWeight
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert("장바구니에 추가되었습니다!");
+    window.location.href = "/FMPick/cart.html"; 
+}
+
 function goBack() {
     window.history.back();
 }
@@ -76,9 +93,6 @@ function goHome() {
     window.location.href = "/FMpick/home.html";
 }
 
-function addToCart() {
-    alert("장바구니에 추가되었습니다!");
-}
 
 function buyNow() {
     const productName = document.querySelector('.product-info span').textContent;
@@ -93,5 +107,5 @@ function buyNow() {
 
     localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
 
-    window.location.href = 'pay.html';
+    window.location.href = "/FMPick/pay.html";
 }
