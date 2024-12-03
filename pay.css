@@ -1,0 +1,143 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html,body {
+height: 100%;
+}
+
+body {
+font-family: Arial, sans-serif;
+background-color: #f9f9f9; 
+display: flex;
+justify-content: center; 
+align-items: flex-start; 
+}
+
+.container {
+background-color: #ffffff; 
+width: 100%;
+max-width: 500px; 
+padding: 20px; 
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+margin: 0 auto; 
+box-sizing: border-box; 
+min-height: 100vh;
+}
+.navigation {
+    display: flex; 
+    align-items: center; 
+   justify-content: space-between;
+    margin-bottom: 20px; 
+}
+
+#back, #home {
+    width: 25px; 
+    height: auto; 
+    cursor: pointer;
+ }  
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #777;
+  font-size: 14px;
+}
+
+.input-group input[type="text"],
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group label {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background-color: #E8F9E8;
+  border-color: #388E3C;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  background-color: #D5F0D5;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #388E3C;
+}
+
+.summary {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.summary-item.total {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.agreement {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #777;
+}

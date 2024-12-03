@@ -4,144 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>결제 화면</title>
-  <style>
-
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html,body {
-    height: 100%;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; 
-    display: flex;
-    justify-content: center; 
-    align-items: flex-start; 
-}
-
-.container {
-    background-color: #ffffff; 
-    width: 100%;
-    max-width: 500px; 
-    padding: 20px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    margin: 0 auto; 
-    box-sizing: border-box; 
-    min-height: 100vh;
-}
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .input-group {
-      margin-bottom: 15px;
-    }
-
-    .input-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #777;
-      font-size: 14px;
-    }
-
-    .input-group input[type="text"],
-    .input-group select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .radio-group {
-      display: flex;
-      gap: 10px;
-    }
-
-    .radio-group label {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .radio-group input[type="radio"] {
-      display: none;
-    }
-
-    .radio-group input[type="radio"]:checked + label {
-      background-color: #f0f8ff;
-      border-color: #388E3C;
-    }
-
-    .button {
-      display: block;
-      width: 100%;
-      background-color: #388E3C;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      text-align: center;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background-color: #121212;
-    }
-
-    .summary {
-      background-color: #f4f4f4;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .summary-item.total {
-      font-weight: bold;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .agreement {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
 </head>
+<link rel="stylesheet" href="pay.css">
 <body>
   <div class="container">
+
+    <div class="navigation">
+      <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()">
+      <img id="home" src="./Img/product_home.png" alt="홈" onClick="goHome()">
+  </div>
+
     <h1 class="title">주문하기</h1>
 
     <!-- 수령 방식 -->
@@ -211,6 +83,14 @@ body {
   } else {
     alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
     window.location.href = "portato.html"; 
+  }
+
+  function goBack() {
+    window.history.back();
+  }
+
+  function goHome() {
+    window.location.href = "home.html";
   }
 
 </script>
