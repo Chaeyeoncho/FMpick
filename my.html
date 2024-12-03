@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMpick - 마이페이지</title>
+    <link rel="stylesheet" href="my.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()">
+            <img id="home" src="./Img/product_home.png" alt="홈" onClick="goHome()">
+        </div>
+        <!-- 프로필 섹션 -->
+        <div class="profile">
+            <div class="profile-picture">
+                <img src="./Img/img.svg" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h2 >조채연</h2>
+                <p>gcy9293@naver.com</p>
+            </div>
+        </div>
+
+        <p class="description">누구나 농산물을 올리고 판매할 수 있아요</p>
+
+        <div class="actions">
+            <div class="action-item" onClick = "goHome()">농산물 구경하러 가기 </div>
+            <div class="action-item" onClick = "goInstagram()">@FMpick 팔로우</div>
+        </div>
+
+        <div class="footer">
+            <a href="#">개인정보 처리방침</a>
+            <a href="#">이용 약관</a>
+        </div>
+
+        <div class="navigator-bar">
+            <a href="home.html">
+                <img src="./Img/home_real.svg" alt="홈 아이콘">
+                <span class = "nav-title">홈</span>
+            </a>
+            <a href="info.html" >
+                <img src="./Img/qr.svg" alt="중앙 아이콘">
+                <span class = "nav-title">등록</span>
+            </a>
+            <a href="cart.html">
+                <img src="./Img/order.svg" alt="주문 아이콘">
+                <span class = "nav-title">주문</span>
+            </a>
+            <a href="my.html">
+                <img src="./Img/my_real.svg" alt="마이 아이콘">
+                <span class = "nav-realtitle">마이</span>
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function goHome() {
+        location.href = "home.html";
+    }
+
+    function goInstagram() {
+        window.open("https://www.instagram.com/fmpick_._", "_blank");
+    }
+</script>
+</html>
