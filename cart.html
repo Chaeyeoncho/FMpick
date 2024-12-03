@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMPICK - 장바구니</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 네비게이션 -->
+        <div class="navigation">
+            <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()">
+            <h1 class="title">장바구니</h1>
+            <img id="home" src="./Img/product_home.png" alt="홈" onClick="goHome()">
+        </div>
+
+        <!-- 장바구니 내용 --> 
+            <div id="cart-items">
+                <!-- 여기에 장바구니 상품이 표시-->
+            </div>
+            <div id="empty-message" style="display: none;">
+                <p>장바구니가 비어있어요</p>
+                <img src="./Img/empty.svg" alt="장바구니" class="cart">
+                <p>농산물을 구경하고<br>장바구니를 채워주세요!</p>
+            </div>
+        </div>
+    </div>
+    <script src="./cart.js"></script>
+</body>
+</html>
