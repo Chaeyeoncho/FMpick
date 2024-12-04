@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>결제 화면</title>
+  <link rel="stylesheet" href="pay.css">
+  <script src="https://js.tosspayments.com/v1"></script>
 </head>
-<link rel="stylesheet" href="pay.css">
 <body>
   <div class="container">
 
     <div class="navigation">
       <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()">
       <img id="home" src="./Img/product_home.png" alt="홈" onClick="goHome()">
-  </div>
+    </div>
 
     <h1 class="title">주문하기</h1>
 
@@ -70,28 +71,48 @@
       결제 시 약관에 동의한 것으로 간주됩니다.
     </div>
   </div>
+
+  <script>
+    const productInfo = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (productInfo) {
+      document.querySelector(".summary-item:nth-child(1) span:nth-child(2)").innerText = productInfo.name;
+      document.querySelector(".summary-item:nth-child(2) span:nth-child(2)").innerText = productInfo.price;
+      document.querySelector(".summary-item.total span:nth-child(2)").innerText = productInfo.price;
+
+      document.querySelector(".button").innerText = `${productInfo.price} 주문하기`;
+    } else {
+      alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
+      window.location.href = "portato.html"; 
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function goHome() {
+      window.location.href = "home.html";
+    }
+
+    document.querySelector(".button").addEventListener("click", function() {
+      const clientKey = "test_ck_ZLKGPx4M3MRM1XdaxPXEVBaWypv1"; // 테스트용 클라이언트 키
+
+      const tossPayments = TossPayments(clientKey);
+
+      // 금액에서 숫자만 추출하여 정수형으로 변환
+      const amount = parseInt(productInfo.price.replace(/[^0-9]/g, ""));
+      
+      const orderId = 'orderId-' + new Date().getTime();
+
+      tossPayments.requestPayment("카드", {
+        amount: amount,
+        orderId: orderId,
+        orderName: productInfo.name,
+        successUrl: window.location.origin + "/FMPick/success.html",
+        failUrl: window.location.origin + "/FMPick/fail.html",
+      });
+    });
+
+  </script>
 </body>
-<script>
-  const productInfo = JSON.parse(localStorage.getItem("selectedProduct"));
-
-  if (productInfo) {
-    document.querySelector(".summary-item:nth-child(1) span:nth-child(2)").innerText = productInfo.name;
-    document.querySelector(".summary-item:nth-child(2) span:nth-child(2)").innerText = productInfo.price;
-    document.querySelector(".summary-item.total span:nth-child(2)").innerText = productInfo.price;
-
-    document.querySelector(".button").innerText = `${productInfo.price} 주문하기`;
-  } else {
-    alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
-    window.location.href = "portato.html"; 
-  }
-
-  function goBack() {
-    window.history.back();
-  }
-
-  function goHome() {
-    window.location.href = "home.html";
-  }
-
-</script>
 </html>

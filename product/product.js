@@ -100,11 +100,13 @@ function buyNow() {
     const productName = document.querySelector('.product-info span').textContent;
     const productPrice = document.querySelector('.product-info p:nth-of-type(3)').textContent;
     const productWeight = document.querySelector('.product-info p:nth-of-type(2)').textContent;
+    const productImage = document.querySelector('.product img').src;
 
     const productInfo = {
         name: productName,
         price: productPrice,
-        weight: productWeight
+        weight: productWeight,
+        image: productImage
     };
 
     localStorage.setItem('selectedProduct', JSON.stringify(productInfo));

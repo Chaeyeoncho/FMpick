@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>결제 실패</title>
+</head>
+<body>
+    <h1>결제에 실패하였습니다.</h1>
+    <p>오류 메시지: <span id="message"></span></p>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const message = urlParams.get('message');
+
+        document.getElementById('message').textContent = message;
+    </script>
+</body>
+</html>
