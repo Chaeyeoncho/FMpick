@@ -14,7 +14,6 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; 
-    margin-left: -13px;
 }
 
 .container {
@@ -23,9 +22,12 @@ body {
     max-width: 500px; 
     padding: 20px;
     margin: 0 auto;
+    height: 100vh;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     flex-grow: 1; 
     box-sizing: border-box;
+    justify-content: flex-start; 
+    overflow-y: auto; 
 }
 .navigation {
     display: flex; 

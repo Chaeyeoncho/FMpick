@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p class="item-price">${item.price}</p>
                 </div>
             `;
-            cartItemsContainer.appendChild(itemDiv);
+            cartItemsContainer.prepend(itemDiv);
 
         });
     }
