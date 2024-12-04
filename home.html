@@ -10,7 +10,7 @@
     <div class="container">
         <a href="home.html">
             <img id="FMpickLogo" src="./Img/fmpick_white.svg" alt="FMPick Logo">
-        </a></a>
+        </a>
 
         <form id="form">
             <img src="./Img/search.svg" alt="검색 아이콘">
@@ -94,5 +94,17 @@
     </div>
     <script src="home.js"></script>
     <script src="api.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentKey = urlParams.get('paymentKey');
+        const orderId = urlParams.get('orderId');
+        const amount = urlParams.get('amount');
+
+        if (paymentKey && orderId && amount) {
+            alert(`결제 성공! 금액: ${amount}원`);
+        } else if (paymentKey || orderId || amount) {
+            alert("결제 실패! 다시 시도해주세요.");
+        }
+    </script>
 </body>
 </html>

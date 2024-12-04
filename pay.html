@@ -1,118 +1,135 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>결제 화면</title>
-  <link rel="stylesheet" href="pay.css">
-  <script src="https://js.tosspayments.com/v1"></script>
-</head>
-<body>
-  <div class="container">
-
-    <div class="navigation">
-      <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()">
-      <img id="home" src="./Img/product_home.png" alt="홈" onClick="goHome()">
-    </div>
-
-    <h1 class="title">주문하기</h1>
-
-    <!-- 수령 방식 -->
-    <div class="subtitle">수령 방식</div>
-    <div class="radio-group">
-      <input type="radio" id="immediate" name="delivery-method" checked>
-      <label for="immediate">택배로 받아보기</label>
-      <input type="radio" id="pickup" name="delivery-method">
-      <label for="pickup">직거래하기</label>
-    </div>
-
-    <!-- 방문할 시간 -->
-    <div class="subtitle">거래 요청 사항</div>
-    <div class="input-group">
-      <label for="visit-hour">판매자에게 전달되는 요청사항이에요</label>
-      <div style="display: flex; gap: 10px;">
-        <input type="text" id="visit-hour" placeholder="예) 평일 저녁 시간에 가능해요" style="flex: 1;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결제 화면</title>
+    <link rel="stylesheet" href="pay.css" />
+    <script src="https://js.tosspayments.com/v1"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <img id="back" src="./Img/back.png" alt="뒤로가기" onClick="goBack()" />
+        <img
+          id="home"
+          src="./Img/product_home.png"
+          alt="홈"
+          onClick="goHome()"
+        />
       </div>
-    </div>
 
-    <!-- 연락처 -->
-    <div class="subtitle">연락처</div>
-    <div class="input-group">
-      <label for="phone">판매자 전화번호 : 010-4634-6109 , 판매자와 연락 후 구매 하세요</label>
-      <input type="text" id="phone" placeholder="010-0000-0000">
-    </div>
+      <h1 class="title">주문하기</h1>
 
-    <!-- 결제 수단 -->
-    <div class="subtitle">결제 수단</div>
-    <div class="radio-group">
-      <input type="radio" id="toss" name="payment-method" checked>
-      <label for="toss">토스페이</label>
-    </div>
-
-    <!-- 요약 -->
-    <div class="summary">
-      <div class="summary-item">
-        <span>상품명</span>
-        <span>노스페이스 패딩</span> 
+      <!-- 수령 방식 -->
+      <div class="subtitle">수령 방식</div>
+      <div class="radio-group">
+        <input type="radio" id="immediate" name="delivery-method" checked />
+        <label for="immediate">택배로 받아보기</label>
+        <input type="radio" id="pickup" name="delivery-method" />
+        <label for="pickup">직거래하기</label>
       </div>
-      <div class="summary-item">
-        <span>결제 금액</span>
-        <span>85,000원</span> 
+
+      <!-- 방문할 시간 -->
+      <div class="subtitle">거래 요청 사항</div>
+      <div class="input-group">
+        <label for="visit-hour">판매자에게 전달되는 요청사항이에요</label>
+        <div style="display: flex; gap: 10px">
+          <input
+            type="text"
+            id="visit-hour"
+            placeholder="예) 평일 저녁 시간에 가능해요"
+            style="flex: 1"
+          />
+        </div>
       </div>
-      <div class="summary-item total">
-        <span>총 결제 금액</span>
-        <span>85,000원</span> 
+
+      <!-- 연락처 -->
+      <div class="subtitle">연락처</div>
+      <div class="input-group">
+        <label for="phone"
+          >판매자 전화번호 : 010-4634-6109 , 판매자와 연락 후 구매 하세요</label
+        >
+        <input type="text" id="phone" placeholder="010-0000-0000" />
       </div>
+
+      <!-- 결제 수단 -->
+      <div class="subtitle">결제 수단</div>
+      <div class="radio-group">
+        <input type="radio" id="toss" name="payment-method" checked />
+        <label for="toss">토스페이</label>
+      </div>
+
+      <!-- 요약 -->
+      <div class="summary">
+        <div class="summary-item">
+          <span>상품명</span>
+          <span>노스페이스 패딩</span>
+        </div>
+        <div class="summary-item">
+          <span>결제 금액</span>
+          <span>85,000원</span>
+        </div>
+        <div class="summary-item total">
+          <span>총 결제 금액</span>
+          <span>85,000원</span>
+        </div>
+      </div>
+
+      <!-- 결제 버튼 -->
+      <button class="button">85,000원 주문하기</button>
+      <div class="agreement">결제 시 약관에 동의한 것으로 간주됩니다.</div>
     </div>
 
-    <!-- 결제 버튼 -->
-    <button class="button">85,000원 주문하기</button> 
-    <div class="agreement">
-      결제 시 약관에 동의한 것으로 간주됩니다.
-    </div>
-  </div>
+    <script>
+      const productInfo = JSON.parse(localStorage.getItem("selectedProduct"));
 
-  <script>
-    const productInfo = JSON.parse(localStorage.getItem("selectedProduct"));
+      if (productInfo) {
+        document.querySelector(
+          ".summary-item:nth-child(1) span:nth-child(2)"
+        ).innerText = productInfo.name;
+        document.querySelector(
+          ".summary-item:nth-child(2) span:nth-child(2)"
+        ).innerText = productInfo.price;
+        document.querySelector(
+          ".summary-item.total span:nth-child(2)"
+        ).innerText = productInfo.price;
 
-    if (productInfo) {
-      document.querySelector(".summary-item:nth-child(1) span:nth-child(2)").innerText = productInfo.name;
-      document.querySelector(".summary-item:nth-child(2) span:nth-child(2)").innerText = productInfo.price;
-      document.querySelector(".summary-item.total span:nth-child(2)").innerText = productInfo.price;
+        document.querySelector(
+          ".button"
+        ).innerText = `${productInfo.price} 주문하기`;
+      } else {
+        alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
+        window.location.href = "portato.html";
+      }
 
-      document.querySelector(".button").innerText = `${productInfo.price} 주문하기`;
-    } else {
-      alert("상품 정보가 없습니다. 이전 페이지로 돌아갑니다.");
-      window.location.href = "portato.html"; 
-    }
+      function goBack() {
+        window.history.back();
+      }
 
-    function goBack() {
-      window.history.back();
-    }
+      function goHome() {
+        window.location.href = "home.html";
+      }
 
-    function goHome() {
-      window.location.href = "home.html";
-    }
+      document.querySelector(".button").addEventListener("click", function () {
+        const clientKey = "test_ck_ZLKGPx4M3MRM1XdaxPXEVBaWypv1"; // 테스트용 클라이언트 키
 
-    document.querySelector(".button").addEventListener("click", function() {
-      const clientKey = "test_ck_ZLKGPx4M3MRM1XdaxPXEVBaWypv1"; // 테스트용 클라이언트 키
+        const tossPayments = TossPayments(clientKey);
 
-      const tossPayments = TossPayments(clientKey);
+        // 금액에서 숫자만 추출하여 정수형으로 변환
+        const amount = parseInt(productInfo.price.replace(/[^0-9]/g, ""));
 
-      // 금액에서 숫자만 추출하여 정수형으로 변환
-      const amount = parseInt(productInfo.price.replace(/[^0-9]/g, ""));
-      
-      const orderId = 'orderId-' + new Date().getTime();
+        const orderId = "orderId-" + new Date().getTime();
 
-      tossPayments.requestPayment("카드", {
-        amount: amount,
-        orderId: orderId,
-        orderName: productInfo.name,
-        successUrl: "./success.html",
-        failUrl: "./fail.html",
+        tossPayments
+          .requestPayment("카드", {
+            amount: amount,
+            orderId: orderId,
+            orderName: productInfo.name,
+            successUrl: `${window.location.origin}/FMpick/home.html`,
+            failUrl: `${window.location.origin}/FMpick/home.html`,
+          })
       });
-    });
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>
