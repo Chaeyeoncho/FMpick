@@ -5,18 +5,17 @@
     box-sizing: border-box;
 }
 
-html, body {
+body {
     font-family: Arial, sans-serif;
     background-color: #F9FAF4; 
-    color: #333;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    width : 100%;
     overflow-x: hidden;
+    width: 100vw; 
 }
 
 .container {
@@ -25,9 +24,10 @@ html, body {
     max-width: 500px;
     min-height: 100vh;
     padding: 20px;
+    margin: 0 auto; 
     text-align: center;
     box-sizing: border-box;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navigation {

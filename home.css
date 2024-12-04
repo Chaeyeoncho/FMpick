@@ -15,19 +15,22 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    width: 100vw; 
 }
 
 .container {
-    background-color: #ffffff; 
+    background-color: #FFFFFF;
     width: 100%;
-    max-width: 500px; 
+    max-width: 500px;
+    min-height: 100vh;
     padding: 20px;
-    margin: 0 auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    flex-grow: 1; 
+    margin: 0 auto; 
+    text-align: center;
     box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 
 a {
     text-decoration: none;
