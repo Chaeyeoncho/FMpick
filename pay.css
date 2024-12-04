@@ -99,7 +99,7 @@ min-height: 100vh;
 .button {
   display: block;
   width: 100%;
-  background-color: #D5F0D5;
+  background-color: #388E3C;
   color: white;
   padding: 15px;
   border: none;
@@ -110,11 +110,6 @@ min-height: 100vh;
   margin-top: 20px;
   transition: 0.2s;
 }
-
-.button:hover {
-  background-color: #388E3C;
-}
-
 .summary {
   background-color: #f4f4f4;
   padding: 15px;

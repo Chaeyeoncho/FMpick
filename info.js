@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const image = (previewImage.src && previewImage.src !== location.href) 
             ? previewImage.src 
-            : previewImage.src = '/FMpick/img/fmpick_white.svg';
+            : previewImage.src = '/FMpick/Img/fmpick_white.svg';
 
 
         if (!productName || !weight || !description || !price) {

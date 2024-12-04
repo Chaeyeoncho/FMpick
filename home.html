@@ -101,7 +101,7 @@
         const amount = urlParams.get('amount');
     
         if (paymentKey && orderId && amount) {
-            alert(`결제 성공! 주문 번호: ${orderId}, 금액: ${amount}원`);
+            alert(`결제 성공! 금액: ${amount}원`);
         } else if (paymentKey || orderId || amount) {
             alert("결제 실패! 다시 시도해주세요.");
         }
