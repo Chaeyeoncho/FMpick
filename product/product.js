@@ -84,7 +84,7 @@ function addToCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 
     alert("장바구니에 추가되었습니다!");
-    window.location.href = "/FMPick/cart.html"; 
+    window.location.href = "../cart.html"; 
 }
 
 function goBack() {
@@ -111,5 +111,5 @@ function buyNow() {
 
     localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
 
-    window.location.href = "/FMPick/pay.html";
+    window.location.href = "../pay.html";
 }
