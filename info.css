@@ -1,11 +1,9 @@
-/* 기본 초기화 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* body 설정 */
 body {
     font-family: Arial, sans-serif;
     background-color: #F9FAF4; 
@@ -14,7 +12,6 @@ body {
     align-items: flex-start; 
 }
 
-/* 중앙 컨테이너 설정 */
 .container {
     background-color: #ffffff; 
     width: 100%;
@@ -66,17 +63,16 @@ input[type="file"] {
 }
 
 label {
-    display: flex; /* 플렉스 박스 활성화 */
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    background-color: #E8F5E9; /* 배경색 */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: #E8F5E9; 
     color: #fff;
-    width: 100px; /* 원하는 너비 */
-    height: 100px; /* 원하는 높이 */
-    border-radius: 50%; /* 둥근 모서리 */
-    cursor: pointer; /* 클릭 가능한 마우스 포인터 */
-    /* margin: 20px auto; 수평 중앙 정렬 */
-    font-size: 14px; /* 텍스트 크기 */
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    font-size: 14px; 
 }
 
 .preview {
@@ -118,7 +114,7 @@ button {
 button:hover {
     background-color: #50C878;
 }
-/* 카메라 아이콘 기본 스타일 */
+
 #defaultLabel {
     display: flex;
     justify-content: center;
@@ -140,16 +136,15 @@ button:hover {
     align-items: center;
 }
 
-/* 미리보기 이미지 */
+
 #previewImage {
     width: 100px;
     height: 100px;
-    display: none; /* 기본적으로 숨김 */
+    display: none; 
     margin: 10px auto;
     border: 1px solid #ccc;
 }
 
-/* 미리보기 활성화 시, 라벨 숨기기 */
 #defaultLabel.hidden {
     display: none;
 }

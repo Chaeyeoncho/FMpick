@@ -14,15 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItemsContainer.style.display = 'block';
 
         cart.forEach(item => {
+            console.log(item.image); 
             const itemDiv = document.createElement('div');
             itemDiv.className = 'cart-item';
             itemDiv.innerHTML = `
-                <p><strong>${item.name}</strong></p>
-                <p>${item.weight}</p>
-                <p>${item.price}</p>
-                <hr>
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <p class="item-name">${item.name}</p>
+                    <p class="item-weight">${item.weight}</p>
+                    <p class="item-price">${item.price}</p>
+                </div>
             `;
             cartItemsContainer.appendChild(itemDiv);
+
         });
     }
 });
