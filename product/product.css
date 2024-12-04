@@ -1,32 +1,38 @@
 
-/* 공통 스타일 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
-    height: 100%;
-}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #F9FAF4; 
+    background-color: #F9FAF4;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
+
 
 .container {
     background-color: #ffffff;
     width: 100%;
     max-width: 500px;
-    height: 100%;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
     box-sizing: border-box;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    margin-left: -13px;
 }
+
+
 .navigation {
      display: flex; 
      align-items: center; 
@@ -48,6 +54,7 @@ body {
 
 .product {
     text-align: center;
+    margin-top: -210px;
 }
 
 .product img {
@@ -79,7 +86,6 @@ body {
 .button {
     display: flex;
     justify-content: space-between;
-    margin-top: 235px;
 }
 
 .button button {

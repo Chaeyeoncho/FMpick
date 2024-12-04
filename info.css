@@ -10,17 +10,22 @@ body {
     display: flex;
     justify-content: center; 
     align-items: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    margin-left: -13px;
 }
 
 .container {
     background-color: #ffffff; 
     width: 100%;
     max-width: 500px; 
-    padding: 20px; 
+    padding: 20px;
+    margin: 0 auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    margin: 0 auto; 
-    box-sizing: border-box; 
-    min-height: 100vh;
+    flex-grow: 1; 
+    box-sizing: border-box;
 }
 .navigation {
     display: flex; 

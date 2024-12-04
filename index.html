@@ -12,18 +12,28 @@
     </div>
 </body>
 <style>
- html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #F9FAF4; 
-        }
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .background {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9FAF4; 
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    margin-left : -13px;
+}
+
+        .background {   
             width: 500px;
-            min-height: 95vh; 
+            min-height: 100vh; 
             background-color: #398411; 
             display: flex;
             flex-direction: column;
@@ -34,10 +44,12 @@
 
         #FMpickLogo {
             margin-top: 50px;
+            width: 300px;
         }
 
         #KakaoLogo {
           margin-top: 100px;
+          width: 300px;
         }
 </style>
 <script>
