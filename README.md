@@ -49,3 +49,6 @@ $ git clone https://github.com/chaeyeoncho/FMpick.git
 Visual Studio Code에서 Live Server 확장팩 설치
 index.html 파일에서 마우스 우클릭 → Open with Live Server 클릭
 (단축키: Alt + L + O)
+
+
+[블랙 민트 심플 모던한 브랜드 프로젝트 제안서 프레젠테이션 .pdf](https://github.com/user-attachments/files/18032782/default.pdf)
